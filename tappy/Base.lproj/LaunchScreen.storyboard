@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap your friends and get tapbacks" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxq-qG-dAr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="XQH-8D-wPo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" red="0.39575969529999999" green="1" blue="0.4829983384" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stay in touch with tappy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qI-BR-rs2">
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" red="0.39575969529999999" green="1" blue="0.4829983384" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tappy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7z-NT-eLi">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="209" id="qFm-3S-pxw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="69"/>
+                                <color key="textColor" red="0.39575969529999999" green="1" blue="0.4829983384" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.31315434644670048" green="0.31315434644670048" blue="0.31315434644670048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="v7z-NT-eLi" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="1h9-fV-mtR"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="5qI-BR-rs2" secondAttribute="bottom" constant="145" id="ATH-rb-jDE"/>
+                            <constraint firstItem="v7z-NT-eLi" firstAttribute="trailing" secondItem="hxq-qG-dAr" secondAttribute="trailing" id="HFL-VO-6X0"/>
+                            <constraint firstItem="hxq-qG-dAr" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="215" id="VeG-fs-0Xk"/>
+                            <constraint firstItem="5qI-BR-rs2" firstAttribute="top" secondItem="hxq-qG-dAr" secondAttribute="bottom" constant="63" id="XXb-0W-nPe"/>
+                            <constraint firstItem="v7z-NT-eLi" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="caa-a8-1rs"/>
+                            <constraint firstItem="hxq-qG-dAr" firstAttribute="trailing" secondItem="5qI-BR-rs2" secondAttribute="trailing" id="eYW-Il-sUq"/>
+                            <constraint firstItem="v7z-NT-eLi" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="20" id="gtP-aw-OHK"/>
+                            <constraint firstItem="hxq-qG-dAr" firstAttribute="leading" secondItem="5qI-BR-rs2" secondAttribute="leading" id="oNQ-fM-VBd"/>
+                            <constraint firstItem="v7z-NT-eLi" firstAttribute="leading" secondItem="hxq-qG-dAr" secondAttribute="leading" id="rkU-gV-O3f"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="272.11394302848578"/>
+        </scene>
+    </scenes>
+</document>
