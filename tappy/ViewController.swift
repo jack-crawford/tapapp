@@ -66,17 +66,76 @@ class ViewController: UIViewController {
     }
     
     @IBAction func add_friend(_ sender: UIButton) {
-        print("how bout this")
-        let alertController = UIAlertController(title: "Add a pal", message: "Get your friend's code and put it in to start tapping with them", preferredStyle: .alert)
-        print("button was pushed here")
-
+        
         func add(code: String) {
             //get contents of a url with user's id and new person's code
             //if invalid, another alert with an error, go back to original
             //if valid, give a confirm w the person's name and then refresh webview to add them
             //yipeee
+            if let cookies = HTTPCookieStorage.shared.cookies {
+                for cookie in cookies {
+                    print("\(cookie)")
+                    if cookie.name == "tap_email" {
+                        let user = cookie.value
+                        let check_address = "http://ec2-54-201-48-199.us-west-2.compute.amazonaws.com/tappy/newpal.php?method=check&code=" + code
+                        let check_address_url = NSURL(string: check_address)
+                        let check_request = URLRequest(url: check_address_url as! URL)
+                        let session2 = URLSession.shared
+                        print("This was hit line 30")
+                        let task1 = session2.dataTask(with: check_request, completionHandler: {
+                            (data, response, error) -> Void in
+                                let dataa = String(data: data!, encoding: String.Encoding.utf8)
+                                if dataa == nil {
+                                    print("data is nil")
+                                    return
+                                } else {
+                                    if dataa == "none" {
+                                        //alert about the nonexistent thingy, go back to the original
+                                        print(dataa)
+                                        let oopsAlertController = UIAlertController(title: "Oops!", message: "We have no one using that code", preferredStyle: .alert)
+                                        let cancelAction = UIAlertAction(title: "I'll try again", style: .cancel) { (_) in }
+                                        oopsAlertController.addAction(cancelAction)
+                                        self.present(oopsAlertController, animated: true, completion: nil)
+                                    } else {
+                                        //alert with confirm or cancel
+                                        let hoorayAlertController = UIAlertController(title: "Cool!", message: "Were you trying to add " + dataa!, preferredStyle: .alert)
+                                        let yesAction = UIAlertAction(title: "Yes!", style: .default) { (_) in
+                                            let connect_address = "http://ec2-54-201-48-199.us-west-2.compute.amazonaws.com/tappy/newpal.php?method=connect&code=" + code + "&user=" + user
+                                            let connect_address_url = NSURL(string: connect_address)
+                                            let connect_request = URLRequest(url: connect_address_url as! URL)
+                                            let session2 = URLSession.shared
+                                            print("This was hit line 30")
+                                            let task2 = session2.dataTask(with: connect_request, completionHandler: {
+                                                (data, response, error) -> Void in
+                                                
+                                                    if data == nil {
+                                                        print("data is nil")
+                                                        return
+                                                    } else {
+                                                        self.web_viiew.reload()
+                                                    }
+                                                
+                                                })
+                                                print("This was hit")
+                                                task2.resume()
+                                        }
+                                            hoorayAlertController.addAction(yesAction)
+                                        let noAction = UIAlertAction(title: "No", style: .cancel) { (_) in }
+                                            hoorayAlertController.addAction(noAction)
+                                        self.present(hoorayAlertController, animated: true, completion: nil)
+
+                                    }
+                                }
+                        })
+                        print("This was hit")
+                        task1.resume()
+                    }
+                }
+            }
             print(code)
         }
+        
+        let alertController = UIAlertController(title: "Add a pal", message: "Get your friend's code and put it in to start tapping with them", preferredStyle: .alert)
         let loginAction = UIAlertAction(title: "Add", style: .default) { (_) in
             let palCodeField = alertController.textFields![0] as UITextField
 
